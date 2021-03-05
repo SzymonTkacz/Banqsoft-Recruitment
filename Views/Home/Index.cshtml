@@ -1,0 +1,36 @@
+﻿@model Banqsoft.Models.HousingLoan
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="home-container">
+    <h1 class="caption">Calculate your loan!</h1>
+    <div class="calculator-form">
+        <form asp-action="Loan" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h4>
+                <label asp-for="Rate">Interest rate equals 3.5% per year</label>
+                <br />
+            </h4>
+            <h6>
+                <label asp-for="Amount">Type the amount that you want to loan (min 10k, max 300k):</label>
+                <br />
+                <input class="input" asp-for="Amount" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </h6>
+            <h6>
+                <label asp-for="PaybackTime">For how many years (min 5, max 40):</label>
+                <br />
+                <input class="input" asp-for="PaybackTime" />
+                <span asp-validation-for="PaybackTime" class="text-danger"></span>
+            </h6>
+            <button type="submit" class="btn-primary">Calculate!</button>
+            <button type="reset" class="btn-dark">Clear</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,20 @@
+﻿@model Banqsoft.Models.HousingLoan
+
+@{
+    ViewData["Title"] = "Payback Plan";
+}
+
+<div class="home-container">
+    <h1 class="caption">Your Payback Plan</h1>
+    <div class="calculator-form">
+        <h5>Loan Amount:<br /><b class="emphasis2">@Model.Amount</b> zł </h5>
+        <h5>Payback time in years:<br /><b class="emphasis2">@Model.PaybackTime</b></h5>
+        <h5>Total cost:<br /><b class="emphasis">@Model.TotalCost</b> zł </h5>
+        <h5>Mounth total costs:<br /><b class="emphasis2">@Model.MonthlyTotal</b> zł </h5>
+        <h5>Mounth payback costs:<br /><b class="emphasis">@Model.MonthlyPayback</b> zł </h5>
+        <h5>Mounth interest costs:<br /><b class="emphasis">@Model.MonthlyInterest</b> zł </h5>
+        <a asp-action="Index">
+            <input type="button" class="btn-primary" value="New Calculation" />
+        </a>
+    </div>
+</div>
